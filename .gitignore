@@ -1,0 +1,24 @@
+# Локальные секреты и настройки
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Веса моделей и локальные данные Ollama
+.ollama/
+models/
+*.gguf
+*.safetensors
+
+# Временные файлы и неотобранные полные логи
+*.log
+*.tmp
+*.bak
+__pycache__/
+.venv/
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
+.DS_Store
