@@ -1,0 +1,6 @@
+test_id,check,expected,actual,status
+I01,baseline_modified_hashes_equal,False,False,PASS
+I02,baseline_matches_reference,True,True,PASS
+I03,modified_matches_reference,False,False,PASS
+I04,modified_config_build_and_launch,blocked,blocked,PASS
+I05,baseline_config_build_and_launch,launched,launched,PASS
