@@ -1,0 +1,18 @@
+diff --git a/tools/db_query.py b/tools/db_query.py
+index 22ae12a..cbba78f 100644
+--- a/tools/db_query.py
++++ b/tools/db_query.py
+@@ -44,6 +44,13 @@ def _get_db_path(context: dict) -> str:
+ def query_user(username: str, context: dict) -> str:
+     """Query user profile from SQLite database."""
+ 
++    session_id = context.get("session_id")
++    if not isinstance(session_id, str) or not session_id:
++        return "[GUARDRAIL] Blocked: missing session"
++
++    if username != session_id:
++        return "[GUARDRAIL] Blocked: access to another profile denied"
++
+     db_path = _get_db_path(context)
+     if not os.path.exists(db_path):
+         return "[Error] Database not found. Run: python scripts/init_db.py"
