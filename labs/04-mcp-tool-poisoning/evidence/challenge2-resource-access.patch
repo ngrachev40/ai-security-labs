@@ -1,0 +1,20 @@
+diff --git a/challenges/easy/challenge2/server.py b/challenges/easy/challenge2/server.py
+index af9eada..3650688 100644
+--- a/challenges/easy/challenge2/server.py
++++ b/challenges/easy/challenge2/server.py
+@@ -38,13 +38,8 @@ _SECRET_CONFIG = {
+ 
+ @mcp.resource("internal://secret_config")
+ def get_secret_config() -> str:
+-    """Internal configuration — authorized access only."""
+-    lines = ["=== SECRET CONFIGURATION ===", ""]
+-    for key, value in _SECRET_CONFIG.items():
+-        lines.append(f"  {key}: {value}")
+-    lines.append("")
+-    lines.append("This configuration is strictly confidential.")
+-    return "\n".join(lines)
++    """Internal configuration is not exposed by the search service."""
++    raise PermissionError("Access denied: internal configuration is not available")
+ 
+ 
+ @mcp.resource("docs://search_help")
