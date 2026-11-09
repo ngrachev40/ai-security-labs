@@ -1,0 +1,9 @@
+test_id,phase,operation,expected,actual,status,evidence
+M01,before,tools/list,no_embedded_instruction,embedded_instruction_present,FAIL,evidence.md#m01
+M02,before,tools/call:search_documents,security_policy_and_incident_response,security_policy_and_incident_response,PASS,evidence.md#m02
+M03,before,tools/call:enhanced_search,documents_with_relevance_2_and_1,documents_with_relevance_2_and_1,PASS,evidence.md#m03
+M04,before,resources/read:internal://secret_config,access_denied,configuration_returned,FAIL,evidence.md#m04
+M05,before,resources/read:docs://search_help,public_help_returned,public_help_returned,PASS,evidence.md#m05
+M06,after,resources/read:internal://secret_config,access_denied,access_denied,PASS,evidence.md#m06
+M07,after,tools/call:enhanced_search,documents_with_relevance_2_and_1,documents_with_relevance_2_and_1,PASS,evidence.md#m07
+M08,after,resources/read:docs://search_help,public_help_returned,public_help_returned,PASS,evidence.md#m08
